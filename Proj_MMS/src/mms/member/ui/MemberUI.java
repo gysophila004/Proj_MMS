@@ -10,7 +10,8 @@ import mms.member.controller.MemberController;
 
 public class MemberUI {
 	public static void main(String[] args) {
-		System.out.println("Pull ");
+		System.out.println("Pull 연습");
+		System.out.println("Push 연습 1 ");
 
 		boolean isStop = false;
 		MemberController memberController = new MemberController();
