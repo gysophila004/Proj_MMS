@@ -8,7 +8,8 @@ import mms.member.vo.Member;
 public class MemberModifyAction implements Action {
 
 	@Override
-	public void execute(Scanner sc) {
+	public void execute(Scanner sc) throw Exception {
+		ConsoleUtil cu = new ConsoleUtil();
 
 
 

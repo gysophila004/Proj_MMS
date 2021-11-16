@@ -1,28 +1,26 @@
 package mms.member.util;
 //5. 사용자로부터의 입력을 콘솔에서 읽어 들이거나 콘솔로 메시지를 출력하는 역할을 하는 클래스 구현
+// 사용자 입출력
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import mms.member.vo.Member;
 
 public class ConsoleUtil {
+	//1. 회원등록
 	public Member getNewMember(Scanner sc) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		System.out.println("등록할 회원정보를 입력하세요.");
+		System.out.println("이름 : ");
+		String name = sc.next();
+		System.out.println("주소 : ");
+		String addr = sc.next();
+		System.out.println("이메일 : ");
+		String email = sc.next();
+		System.out.println("국가 : ");
+		String nation = sc.next();
+		System.out.println("나이 : ");
+		int age = sc.nextInt();
+		return new Member(name,addr,email,nation,age);
 
 	}
 
@@ -34,21 +32,20 @@ public class ConsoleUtil {
 		System.out.println(newMember.getName() + " 회원 정보 추가 실패");
 	}
 
+	//2. 
 	public void printMemberList(ArrayList<Member> memberList) {
 		//size() : 컬렉션에 저장되어 있는 요소의 개수를 리턴하는 메소드
-
-
-
-
+		for(int i=0; i<memberList.size(); i++)
+			System.out.println(memberList.get(i));
 
 	}
-
+	
+	
+	//3.
 	public String getName(String msgKind, Scanner sc) {
-
-
-
-
-
+		System.out.println(msgKind + "회원 이름을 입력하세요.");
+		System.out.println("");
+		return msgKin;
 
 
 	}

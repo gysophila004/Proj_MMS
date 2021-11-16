@@ -1,3 +1,4 @@
+
 package mms.member.ui;
 //3. 사용자가 메뉴를 선택할수 있는 화면을 구성해 주는 클래스
 import java.util.Scanner;
@@ -10,9 +11,6 @@ import mms.member.controller.MemberController;
 
 public class MemberUI {
 	public static void main(String[] args) {
-		System.out.println("Pull 연습");
-		System.out.println("Push 연습 1 ");
-		System.out.println("Slave Branch 연습 1 ");
 
 		boolean isStop = false;
 		MemberController memberController = new MemberController();

@@ -41,6 +41,34 @@ public class MemberDAO {
 	}
 	// 2. 회원 목록 보기
 	public ArrayList<Member> selectMemberList() {
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		ArrayList<Member> memberList = new ArrayList<> ();
+		String sql = "SELECT * FROM mms_member";
+		Member member = null;
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				String name = rs.getString("name");
+				String addr = rs.getString("addr");
+				String nation = rs.getString("nation");
+				String email = rs.getString("email");
+				int age = rs.getInt("age");
+				
+				member = new Member(name,addr,nation,email,age);
+				memberList.add(member);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
 		return null;
 
 		
@@ -56,6 +84,22 @@ public class MemberDAO {
 	
 	// 4. 회원정보 수정
 	public int updateMember(Member updateMember) {
+		PreparedStatement pstmt = null;
+		int updateCount =  0;
+		String sql = "UPDATE mms_member set addr=?, nation =?, email=?, age=? where name =?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, updateMember.getAddr());
+			pstmt.setString(2, updateMember.getNation());
+			pstmt.setString(3, updateMember.getEmail());
+			pstmt.setInt(4, updateMember.getAge());
+			pstmt.setString(5, updateMember.getName());
+			updateCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally { JdbcUtil.close(pstmt); }
+		
 		return 0;
 
 

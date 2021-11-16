@@ -90,7 +90,7 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		String result = "name = " +name, "addr= " + addr,"email=" + email;
+		String result = "name = " +name + "addr= " + addr +"nation + " +nation+ "email=" + email + "age + " + age;
 		return result;
 	}
 
